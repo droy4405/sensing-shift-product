@@ -1,0 +1,96 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-signal: var(--signal);
+  --color-signal-foreground: var(--signal-foreground);
+  --color-sellin: var(--sellin);
+  --color-positive: var(--positive);
+  --color-shell: var(--shell);
+  --color-shell-foreground: var(--shell-foreground);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.972 0.003 250);
+  --foreground: oklch(0.27 0.03 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.03 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.03 250);
+  --primary: oklch(0.36 0.04 250);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.01 250);
+  --secondary-foreground: oklch(0.36 0.04 250);
+  --muted: oklch(0.95 0.005 250);
+  --muted-foreground: oklch(0.52 0.02 250);
+  --accent: oklch(0.95 0.03 250);
+  --accent-foreground: oklch(0.38 0.12 255);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0.008 250);
+  --input: oklch(0.8 0.015 250);
+  --ring: oklch(0.56 0.2 258);
+  --signal: oklch(0.56 0.2 258);
+  --signal-foreground: oklch(0.99 0 0);
+  --sellin: oklch(0.7 0.03 250);
+  --positive: oklch(0.55 0.13 150);
+  --shell: oklch(0.24 0.03 250);
+  --shell-foreground: oklch(0.97 0.005 250);
+  --gradient-shell: linear-gradient(90deg, oklch(0.22 0.035 250), oklch(0.3 0.06 255));
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@utility panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 0 0.125rem oklch(0.27 0.03 250 / 0.12), 0 0.25rem 1rem oklch(0.27 0.03 250 / 0.06);
+}
+
+@utility label-mono {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-muted-foreground);
+}
+
+@utility shell-bar {
+  background: var(--gradient-shell);
+  color: var(--shell-foreground);
+}
